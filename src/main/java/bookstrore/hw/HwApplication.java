@@ -26,13 +26,13 @@ public class HwApplication {
 		return (args) -> {
 
 			log.info("save a couple of categories and books");
-			categoryRepository.save(new Category("Scifi"));
-			categoryRepository.save(new Category("Comedy"));
-			categoryRepository.save(new Category("Romance"));
-			categoryRepository.save(new Category("Drama"));
+			Category fiction = categoryRepository.save(new Category("Fiction"));
+			Category comedy = categoryRepository.save(new Category("Comedy"));
+			Category romance = categoryRepository.save(new Category("Romance"));
+			Category drama = categoryRepository.save(new Category("Drama"));
 
-			bookRepository.save(new Book("Harry Potter", "J.K.", 2000, 18));
-			bookRepository.save(new Book("Summer", "Author", 2025, 14));
+			bookRepository.save(new Book("Harry Potter", "J.K.", 2000, 18.0, fiction));
+			bookRepository.save(new Book("Summer", "Author", 2025, 14.0, romance));
 
 			log.info("fetch all books and categories");
 			for (Category category : categoryRepository.findAll()) {
