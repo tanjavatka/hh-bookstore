@@ -29,7 +29,7 @@
       <td th:text="${book.Author}"></td>
       <td th:text="${book.publicationYear}"></td>
       <td th:text="${book.Price}"></td>
-      <td th:text="${book.Category.name}"></td>
+      <td th:text="${book.category} ? ${book.category.name} : ' ' "></td>
       <td><a th:href="@{/delete/{id}(id=${book.Isbn})}" class="btn btn-outline-danger">Delete</a></td>
       <td><a th:href="@{/edit/{id}(id=${book.Isbn})}" class="btn btn-outline-info">Edit</a></td>
 

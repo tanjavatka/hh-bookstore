@@ -8,15 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import bookstrore.hw.domain.Book;
 import bookstrore.hw.domain.BookRepository;
+import bookstrore.hw.domain.CategoryRepository;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BookController {
 
   private BookRepository bookRepository;
+  private CategoryRepository categoryRepository;
 
-  public BookController(BookRepository bookRepository) {
+  public BookController(BookRepository bookRepository, CategoryRepository categoryRepository) {
     this.bookRepository = bookRepository;
+    this.categoryRepository = categoryRepository;
   }
 
   @GetMapping("/index")
@@ -48,6 +52,7 @@ public class BookController {
   public String addBook(Model model) {
 
     model.addAttribute("book", new Book());
+    model.addAttribute("categories", categoryRepository.findAll());
 
     return "addbook"; // addbook.html
   }

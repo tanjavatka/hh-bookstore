@@ -18,8 +18,8 @@ public class Book {
   private int publicationYear;
   private double price;
 
-  @ManyToOne
-  @JoinColumn(name = "categoryId")
+  @ManyToOne // Book ManyToOne Category
+  @JoinColumn(name = "categoryId") // FK
   private Category category;
 
   public Book() {

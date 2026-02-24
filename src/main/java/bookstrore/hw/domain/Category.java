@@ -14,9 +14,12 @@ public class Category {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long categoryId;
+  public Long categoryId;
   private String name;
 
+  // Category OneToMany Book
+  // cascade ALL => poistaa kaikki tiedot kategoriasta / kirjalistasta jos
+  // kirjalistan / kategorian poistaa
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
   private List<Book> books;
 
