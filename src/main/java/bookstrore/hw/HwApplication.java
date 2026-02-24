@@ -38,6 +38,7 @@ public class HwApplication {
 			for (Category category : categoryRepository.findAll()) {
 				log.info(category.toString());
 			}
+
 			for (Book book : bookRepository.findAll()) {
 				log.info(book.toString());
 			}
@@ -45,9 +46,3 @@ public class HwApplication {
 	}
 
 }
-
-// this.title = title;
-// this.author = author;
-// this.publicationYear = publicationYear;
-// this.isbn = isbn;
-// this.price = price;
