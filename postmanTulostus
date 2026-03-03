@@ -1,0 +1,48 @@
+{
+  "_embedded": {
+    "books": [
+      {
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/api/books/1"
+          },
+          "book": {
+            "href": "http://localhost:8080/api/books/1"
+          },
+          "category": {
+            "href": "http://localhost:8080/api/books/1/category"
+          }
+        },
+        "title": "Harry Potter",
+        "author": "J.K.",
+        "publicationYear": 2000,
+        "price": 18.0
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/api/books/2"
+          },
+          "book": {
+            "href": "http://localhost:8080/api/books/2"
+          },
+          "category": {
+            "href": "http://localhost:8080/api/books/2/category"
+          }
+        },
+        "title": "Summer",
+        "author": "Author",
+        "publicationYear": 2025,
+        "price": 14.0
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/api/books"
+    },
+    "profile": {
+      "href": "http://localhost:8080/api/profile/books"
+    }
+  }
+}

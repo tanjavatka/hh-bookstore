@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Harry Potter",
+    "author": "J.K.",
+    "publicationYear": 2000,
+    "price": 18.0
+  },
+  {
+    "title": "Summer",
+    "author": "Author",
+    "publicationYear": 2025,
+    "price": 14.0
+  },
+  {
+    "title": "Muutoksia erämaassa",
+    "author": "Milla Magia",
+    "publicationYear": 1998,
+    "price": 19.0
+  }
+]
