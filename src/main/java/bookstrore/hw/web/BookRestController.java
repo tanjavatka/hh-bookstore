@@ -35,8 +35,8 @@ public class BookRestController {
 
   // RESTful service to get book by id
   @GetMapping("/books/{id}")
-  public @ResponseBody Optional<Book> getOneBookRest(@PathVariable(name = "isbn") Integer isbn) {
-    return bookRepository.findById(isbn);
+  public @ResponseBody Optional<Book> getOneBookRest(@PathVariable(name = "id") Long id) {
+    return bookRepository.findById(id);
   }
 
   // RESTful service to save new book

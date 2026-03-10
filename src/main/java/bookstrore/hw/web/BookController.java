@@ -40,9 +40,9 @@ public class BookController {
 
   // Delete a Book
   @GetMapping("/delete/{id}")
-  public String deleteBook(@PathVariable("id") int isbn, Model model) {
+  public String deleteBook(@PathVariable("id") Long id, Model model) {
 
-    bookRepository.deleteById(isbn);
+    bookRepository.deleteById(id);
 
     return "redirect:/booklist"; // booklist.html
   }
@@ -68,9 +68,9 @@ public class BookController {
 
   // Edit a Book
   @RequestMapping("/edit/{id}")
-  public String editBook(@PathVariable("id") int isbn, Model model) {
+  public String editBook(@PathVariable("id") Long id, Model model) {
 
-    model.addAttribute("book", bookRepository.findById(isbn));
+    model.addAttribute("book", bookRepository.findById(id));
 
     return "editBook"; // editBook.html
   }

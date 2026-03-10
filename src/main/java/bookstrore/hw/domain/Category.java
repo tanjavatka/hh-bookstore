@@ -23,11 +23,13 @@ public class Category {
   // cascade ALL => poistaa kaikki tiedot kategoriasta / kirjalistasta jos
   // kirjalistan / kategorian poistaa
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+  // @JsonIgnoreProperties =>
+  // json -käsittelyssä ohitetaan kategorian kirjojen kategoria tiedot.
+  // Vain kirjan tiedot otetaan.
   @JsonIgnoreProperties("category")
   private List<Book> books;
 
   public Category() {
-    this.name = null;
   }
 
   public Category(String name) {

@@ -14,6 +14,8 @@ public class Book {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
   private int isbn;
   private String title;
   private String author;
@@ -21,25 +23,30 @@ public class Book {
   private double price;
 
   @ManyToOne // Book ManyToOne Category
-  @JsonIgnoreProperties("books")
+  @JsonIgnoreProperties("books") // json -käsittelyssä ohitetaan kirjan kategoria tiedoista kaikki ylimääräinen
+                                 // tieto. Otetaan vain kategorian nimi.
   @JoinColumn(name = "categoryId") // FK
   private Category category;
 
   public Book() {
-    this.isbn = 0;
-    this.title = null;
-    this.author = null;
-    this.publicationYear = 0;
-    this.price = 0.0;
-    this.category = null;
+
   }
 
-  public Book(String title, String author, int publicationYear, double price, Category category) {
+  public Book(int isbn, String title, String author, int publicationYear, double price, Category category) {
+    this.isbn = isbn;
     this.title = title;
     this.author = author;
     this.publicationYear = publicationYear;
     this.price = price;
     this.category = category;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getTitle() {

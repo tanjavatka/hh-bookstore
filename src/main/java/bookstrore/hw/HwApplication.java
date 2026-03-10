@@ -31,8 +31,8 @@ public class HwApplication {
 			Category romance = categoryRepository.save(new Category("Romance"));
 			Category drama = categoryRepository.save(new Category("Drama"));
 
-			bookRepository.save(new Book("Harry Potter", "J.K.", 2000, 18.0, fiction));
-			bookRepository.save(new Book("Summer", "Author", 2025, 14.0, romance));
+			bookRepository.save(new Book(37829, "Harry Potter", "J.K.", 2000, 18.0, fiction));
+			bookRepository.save(new Book(29749, "Summer", "Author", 2025, 14.0, romance));
 
 			log.info("fetch all books and categories");
 			for (Category category : categoryRepository.findAll()) {
