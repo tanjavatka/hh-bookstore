@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import bookstrore.hw.domain.AppUser;
+import bookstrore.hw.domain.AppUserRepository;
 import bookstrore.hw.domain.Book;
 import bookstrore.hw.domain.BookRepository;
 import bookstrore.hw.domain.Category;
@@ -22,7 +24,8 @@ public class HwApplication {
 	}
 
 	@Bean
-	public CommandLineRunner createDemoRows(BookRepository bookRepository, CategoryRepository categoryRepository) {
+	public CommandLineRunner createDemoRows(BookRepository bookRepository, CategoryRepository categoryRepository,
+			AppUserRepository appUserRepository) {
 		return (args) -> {
 
 			log.info("save a couple of categories and books");
@@ -33,6 +36,17 @@ public class HwApplication {
 
 			bookRepository.save(new Book(37829, "Harry Potter", "J.K.", 2000, 18.0, fiction));
 			bookRepository.save(new Book(29749, "Summer", "Author", 2025, 14.0, romance));
+
+			// KokeilijaUser12
+			AppUser user1 = new AppUser("user", "$2a$12$jUzXUAJ85wXQYqB7xCQU9eSYC3F4Xv5k1TivjhZL0WSewuxJBBI1G",
+					"user@user.com", "USER");
+
+			// VartijaAdmin12
+			AppUser user2 = new AppUser("admin", "$2a$12$y6MaotGuIXm/mmLu9dBlBOu4Uaw96Tpdh.oOruMQ84H113w/TEuKG",
+					"admin@admin.com", "ADMIN");
+
+			appUserRepository.save(user1);
+			appUserRepository.save(user2);
 
 			log.info("fetch all books and categories");
 			for (Category category : categoryRepository.findAll()) {
